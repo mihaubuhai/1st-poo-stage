@@ -6,15 +6,20 @@ import player.commands.Stats;
 /**
  *      Clasa curenta este folosita pentru output-ul comenzii "status"
  */
-
 public class ResultStatus extends ResultCommand {
-    Stats stats;
+    private Stats stats;
 
-    public ResultStatus(CommandIn command) {
+    public ResultStatus(final CommandIn command) {
         super(command);
     }
 
-    public void setStats(Stats status) { this.stats = new Stats(status); }
+    /** Setter */
+    public void setStats(final Stats status) {
+        this.stats = new Stats(status);
+    }
 
-    public Stats getStats() { return stats; }
+    /** Getter */
+    public Stats getStats() {
+        return stats;
+    }
 }

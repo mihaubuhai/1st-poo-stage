@@ -1,7 +1,8 @@
 package input.commands;
 
-import java.util.ArrayList;
-
+/**
+ *      Aceasta clasa este conceputa pentru a citi comenzile
+ * */
 public class CommandIn {
     private String command;
     private String username;
@@ -13,61 +14,81 @@ public class CommandIn {
     private int playlistId;
     private String playlistName;
 
-    public void setCommand(String command) {
+    /** Setter  */
+    public void setCommand(final String command) {
         this.command = command;
     }
+    /** Getter */
     public String getCommand() {
         return command;
     }
 
-    public void setUsername(String username) {
+    /** Setter  */
+    public void setUsername(final String username) {
         this.username = username;
     }
+    /** Getter */
     public String getUsername() {
         return username;
     }
 
-    public void setTimestamp(int timestamp) {
+    /** Setter  */
+    public void setTimestamp(final int timestamp) {
         this.timestamp = timestamp;
     }
+    /** Getter */
     public int getTimestamp() {
         return timestamp;
     }
 
-    public void setType(String type) {
+    /** Setter  */
+    public void setType(final String type) {
         this.type = type;
     }
+    /** Getter */
     public String getType() {
         return type;
     }
 
-    public void setFilters(Filters filters) {
+    /** Setter  */
+    public void setFilters(final Filters filters) {
         this.filters = filters;
     }
+    /** Getter */
     public Filters getFilters() {
         return filters;
     }
 
-    public void setItemNumber(int itemNumber) {
+    /** Setter  */
+    public void setItemNumber(final int itemNumber) {
         this.itemNumber = itemNumber;
     }
+    /** Getter */
     public int getItemNumber() {
         return itemNumber;
     }
 
-    public void setSeed(int seed) { this.seed = seed; }
-    public int getSeed() { return seed; }
+    /** Getter */
+    public int getSeed() {
+        return seed;
+    }
 
-    public void setPlaylistId(int playlistId) { this.playlistId = playlistId; }
-    public int getPlaylistId() { return playlistId; }
+    /** Setter  */
+    public void setPlaylistId(final int playlistId) {
+        this.playlistId = playlistId;
+    }
+    /** Getter */
+    public int getPlaylistId() {
+        return playlistId;
+    }
 
-    public void setPlaylistName(String playlistName) { this.playlistName = playlistName; }
-    public String getPlaylistName() { return playlistName; }
-
-    public String getNextCommand(ArrayList<CommandIn> commands) {
-        int current_idx = commands.indexOf(this);
-        if (current_idx == commands.size() - 1) { return null; }
-        return commands.get(current_idx + 1).getCommand();
+    /** Setter  */
+    public void setPlaylistName(final String playlistName) {
+        this.playlistName = playlistName;
+    }
+    /** Getter */
+    public String getPlaylistName() {
+        return playlistName;
     }
 
 }

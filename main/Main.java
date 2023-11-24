@@ -5,11 +5,10 @@ import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-//import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.input.LibraryInput;
 
-import input.commands.*;
-import output.result.*;
+import input.commands.CommandIn;
+import output.result.Output;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,19 +77,15 @@ public final class Main {
 
         // TODO add your implementation
 
-        if (filePathInput.contains("test01") || filePathInput.contains("test02") || filePathInput.contains("test03")
-                || filePathInput.contains("test04") || filePathInput.contains("test05") || filePathInput.contains("test06")
-                || filePathInput.contains("test07")  || filePathInput.contains("test08")|| filePathInput.contains("test09")
-                || filePathInput.contains("test10") || filePathInput.contains("test11") || filePathInput.contains("test12")
-                || filePathInput.contains("test13") || filePathInput.contains("test14")) {
-            ArrayList<CommandIn> commands = objectMapper.readValue(new File("input/" + filePathInput), new TypeReference<>() {});
+        File filein = new File("input/" + filePathInput);
+        ArrayList<CommandIn> commands = objectMapper.readValue(filein, new TypeReference<>() {
+        });
 
-            AnalyzeCommands analizer = new AnalyzeCommands();
+        AnalyzeCommands analyzer = AnalyzeCommands.getInstance();
 
-            ArrayList<ResultCommand> result = analizer.anaylze_func(library, commands);
+        ArrayList<Output> result = analyzer.anaylzeFunc(library, commands);
 
-            ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-            objectWriter.writeValue(new File(filePathOutput), result);
-        }
+        ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
+        objectWriter.writeValue(new File(filePathOutput), result);
     }
 }

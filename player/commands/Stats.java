@@ -3,18 +3,18 @@ package player.commands;
 
 import fileio.input.EpisodeInput;
 import fileio.input.SongInput;
+import playlist.commands.Playlist;
 
 /**
  *      Aceasta clasa este folosita pentru afisarea output-ului comenzii "status";
  */
-
 public class Stats {
     private String name;
     private int remainedTime;
     private String repeat;
     private boolean shuffle, paused;
 
-    public Stats(Stats newStats) {
+    public Stats(final Stats newStats) {
         setName(newStats.getName());
         setRemainedTime(newStats.getRemainedTime());
         setRepeat(newStats.getRepeat());
@@ -22,38 +22,84 @@ public class Stats {
         setPaused(newStats.getPaused());
     }
 
-    public Stats() { setRepeat("No Repeat"); setName(""); }
+    public Stats() {
+        setRepeat("No Repeat");
+        setName("");
+    }
 
-    public void setName(String name) { this.name = name; }
+    /** Setter */
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-    public String getName() { return name; }
+    /** Getter */
+    public String getName() {
+        return name;
+    }
 
-    public void setRemainedTime(int time) { remainedTime = time; }
+    /** Setter */
+    public void setRemainedTime(final int time) {
+        remainedTime = time;
+    }
 
-    public int getRemainedTime() { return remainedTime; }
+//    public void changeRemainedTime(int time) { remainedTime += time; }
 
-    public void setShuffle(boolean shuffle) { this.shuffle = shuffle; }
+    /** Getter */
+    public int getRemainedTime() {
+        return remainedTime;
+    }
 
-    public boolean getShuffle() { return shuffle; }
+    /** Setter */
+    public void setShuffle(final boolean shuffle) {
+        this.shuffle = shuffle;
+    }
 
-    public void setPaused(boolean paused) { this.paused = paused; }
+    /** Getter */
+    public boolean getShuffle() {
+        return shuffle;
+    }
 
-    public boolean getPaused() { return paused; }
+    /** Setter */
+    public void setPaused(final boolean paused) {
+        this.paused = paused;
+    }
 
-    public void setRepeat(String mode) { repeat = mode; }
+    /** Getter */
+    public boolean getPaused() {
+        return paused;
+    }
 
-    public String getRepeat() { return repeat; }
+    /** Setter */
+    public void setRepeat(final String mode) {
+        repeat = mode;
+    }
 
-    public void setFields(Load loadInfo) {
+    /** Getter */
+    public String getRepeat() {
+        return repeat;
+    }
+
+    /** Aceasta metoda initializeaza campurile corespunzator player-ului, mai exact ce ruleaza */
+    public void setFields(final Load loadInfo) {
         /*  1 - melodie   2 - podcast  3 - playlist   */
-        if (loadInfo.getSelectInfo().getResult_type() == 1) {
+        final int songId = 1;
+        final int podcastId = 2;
+        if (loadInfo.getSelectInfo().getResultType() == songId) {
+            /* Se incarca o melodie */
             SongInput songInfo = loadInfo.getSelectInfo().getSong();
             setRemainedTime(songInfo.getDuration());
             setName(songInfo.getName());
-        } else if (loadInfo.getSelectInfo().getResult_type() == 2) {
+        } else if (loadInfo.getSelectInfo().getResultType() == podcastId) {
+            /* Se incarca un episod de podcast */
             EpisodeInput episodeInfo = loadInfo.getSelectInfo().getPodcast().getEpisodes().get(0);
             setRemainedTime(episodeInfo.getDuration());
             setName(episodeInfo.getName());
+        } else {
+            /* Se incarca o melodie dintr-un playlist */
+            Playlist playlist = loadInfo.getSelectInfo().getPlaylist();
+            SongInput songInfo = playlist.getDetails().getSongs().get(0);
+            setRemainedTime(songInfo.getDuration());
+            setName(songInfo.getName());
         }
     }
 

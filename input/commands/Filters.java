@@ -13,82 +13,99 @@ public class Filters {
     private String owner;               // Pentru playlist / podcast
     private int notnullfields = 0;   // Pentru comanda "search"
 
-    public int getNonNullFields() {
-            return notnullfields;
-    }
-
     public Filters() {
         tags = new ArrayList<>();
     }
 
-    public void setAlbum(String album) {
+    /** Getter */
+    public int getNonNullFields() {
+            return notnullfields;
+    }
+
+    /** Setter */
+    public void setAlbum(final String album) {
         this.album = album;
         notnullfields++;
     }
 
-    public void setArtist(String artist) {
+    /** Setter */
+    public void setArtist(final String artist) {
         this.artist = artist;
         notnullfields++;
     }
 
-    public void setGenre(String genre) {
+    /** Setter */
+    public void setGenre(final String genre) {
         this.genre = genre;
         notnullfields++;
     }
 
-    public void setLyrics(String lyrics) {
+    /** Setter */
+    public void setLyrics(final String lyrics) {
         this.lyrics = lyrics;
         notnullfields++;
     }
 
-    public void setOwner(String owner) {
+    /** Setter */
+    public void setOwner(final String owner) {
         this.owner = owner;
         notnullfields++;
     }
 
-    public void setName(String name) {
+    /** Setter */
+    public void setName(final String name) {
         this.name = name;
         notnullfields++;
     }
 
-    public void setReleaseYear(String releaseYear) {
+    /** Setter */
+    public void setReleaseYear(final String releaseYear) {
         this.releaseYear = releaseYear;
         notnullfields++;
     }
 
-    public void setTags(ArrayList<String> tags) {
+    /** Setter */
+    public void setTags(final ArrayList<String> tags) {
         this.tags = tags;
         notnullfields++;
     }
 
+    /** Getter */
     public String getOwner() {
         return owner;
     }
 
+    /** Getter */
     public String getArtist() {
         return artist;
     }
 
+    /** Getter */
     public String getReleaseYear() {
         return releaseYear;
     }
 
+    /** Getter */
     public String getGenre() {
         return genre;
     }
 
+    /** Getter */
     public String getLyrics() {
         return lyrics;
     }
 
+    /** Getter */
     public ArrayList<String> getTags() {
         return tags;
     }
 
+    /** Getter */
     public String getAlbum() {
         return album;
     }
 
+    /** Getter */
     public String getName() {
         return name;
     }

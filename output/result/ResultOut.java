@@ -10,15 +10,17 @@ import input.commands.CommandIn;
 public class ResultOut extends ResultCommand {
     private String message;
 
-    public ResultOut(CommandIn command) {
+    public ResultOut(final CommandIn command) {
         super(command);
     }
 
+    /** Getter */
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    /** Setter */
+    public void setMessage(final String message) {
         this.message = message;
     }
 

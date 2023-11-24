@@ -15,19 +15,50 @@ public class PlaylistEssentials {
         setVisibility("public");
     }
 
-    public void setName(String name) { this.name = name; }
+    /** Setter */
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-    public String getName() { return name; }
+    /** Getter */
+    public String getName() {
+        return name;
+    }
 
-    public void addSong(SongInput song) { songs.add(song); }
+    /** Setter */
+    public void addSong(final SongInput song) {
+        songs.add(song);
+    }
 
-    public ArrayList<SongInput> getSongs() { return songs; }
+    /** Getter */
+    public ArrayList<SongInput> getSongs() {
+        return songs;
+    }
 
-    public void setVisibility(String visibility) { this.visibility = visibility; }
+    /** Setter */
+    public void setVisibility(final String visibility) {
+        this.visibility = visibility;
+    }
 
-    public String getVisibility() { return visibility; }
+    /** Getter */
+    public String getVisibility() {
+        return visibility;
+    }
 
-    public void addFollower() { followers += 1; }
+    /** Metoda ce incrementeaza numarul de "followers" */
+    public void incFollower() {
+        followers += 1;
+    }
 
-    public int getFollowers() { return followers; }
+    /** Metoda ce decremenetaza numarul de "followers" */
+    public void decFollowers() {
+        if (followers > 0) {
+            followers -= 1;
+        }
+    }
+
+    /** Getter */
+    public int getFollowers() {
+        return followers;
+    }
 }

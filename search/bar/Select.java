@@ -10,140 +10,187 @@ import playlist.commands.Playlist;
 
 import java.util.ArrayList;
 
+/**
+ *      Metoda de mai jos este esentiala rularii programului.
+ *      Aceasta are rolul de a executa comanda "select".
+ *      Clasa "Select" este folosita pentru crearea clasei "Player" atunci cand..
+ *      .. se incarca ceva
+ * */
 public class Select {
-    private boolean search_done;                // <-- Daca s-a efectuat search anterior
+    private boolean searchDone;                // <-- Daca s-a efectuat search anterior
     private boolean selected;                       // <-- Daca s-a selectat ceva
     private String user;
     private SongInput song;
     private PodcastInput podcast;
     private Playlist playlist;
-    private ArrayList<String> search_result;
-    private int result_type;                        // <-- Contorizeaza ce anume este incarcat in player
+    private ArrayList<String> searchResult;
+    private int resultType;                 // <-- Contorizeaza ce anume este incarcat in player
+    /* 1 - melodie      2 - podcast     3 - playlist */
+    public Select() {
 
-    public Select() {}
+    }
 
-    public Select(Select otherSelect) {
-        result_type = otherSelect.getResult_type();
-        setSearch_done(otherSelect.getSearch_done());
+    public Select(final CommandIn command, final ArrayList<String> result) {
+        setSearchDone(true);
+        setUser(command.getUsername());
+        setSearchResult(result);
+        /* Linia de mai sus salveaza rezultatul efectiv al cautarii (nume melodii / podcast) */
+        setResultType(command);
+    }
+
+    public Select(final Select otherSelect) {
+        resultType = otherSelect.getResultType();
+        setSearchDone(otherSelect.getSearchDone());
         setSelected(otherSelect.getSelected());
         setUser(otherSelect.getUser());
         setSong(otherSelect.getSong());
         setPodcast(otherSelect.getPodcast());
         setPlaylist(otherSelect.getPlaylist());
-        setSearch_result(otherSelect.getSearch_result());
+        setSearchResult(otherSelect.getSearchResult());
     }
 
-    public void setResult_type(CommandIn command) {
+    /** Setter */
+    public void setResultType(final CommandIn command) {
         /* 1 - song     2 - podcast     3 - playlist */
         if (command.getType().contains("song")) {
-            result_type = 1;
+            resultType = 1;
         } else if (command.getType().contains("podcast")) {
-            result_type = 2;
+            resultType = 2;
         } else {
-            result_type = 3;
+            resultType = 3;
         }
     }
 
-    public int getResult_type() { return result_type; }
-
-    public void setSearch_done(boolean search_done) {
-        this.search_done = search_done;
+    /** Getter */
+    public int getResultType() {
+        return resultType;
     }
 
-    public boolean getSearch_done() {
-        return search_done;
+    /** Setter */
+    public void setSearchDone(final boolean searchDone) {
+        this.searchDone = searchDone;
     }
 
-    public void setSelected(boolean status) {
+    /** Getter */
+    public boolean getSearchDone() {
+        return searchDone;
+    }
+
+    /** Setter */
+    public void setSelected(final boolean status) {
         this.selected = status;
     }
 
+    /** Getter */
     public boolean getSelected() {
         return selected;
     }
 
-    public void setSong(SongInput song) {
+    /** Setter */
+    public void setSong(final SongInput song) {
         this.song = song;
     }
 
+    /** Getter */
     public SongInput getSong() {
         return song;
     }
 
-    public void setUser(String user) {
+    /** Setter */
+    public void setUser(final String user) {
         this.user = user;
     }
 
+    /** getter */
     public String getUser() {
         return user;
     }
 
-    public void setPodcast(PodcastInput podcast) {
+    /** Setter */
+    public void setPodcast(final PodcastInput podcast) {
         this.podcast = podcast;
     }
 
+    /** Getter */
     public PodcastInput getPodcast() {
         return podcast;
     }
 
-    public void setSearch_result(ArrayList<String> result) {
-        search_result = result;
+    /** Setter */
+    public void setSearchResult(final ArrayList<String> result) {
+        searchResult = result;
     }
 
-    public ArrayList<String> getSearch_result() {
-        return search_result;
+    /** Getter */
+    public ArrayList<String> getSearchResult() {
+        return searchResult;
     }
 
-    public void setPlaylist(Playlist playlist) { this.playlist = playlist; }
+    /** Setter */
+    public void setPlaylist(final Playlist playlist) {
+        this.playlist = playlist;
+    }
 
-    public Playlist getPlaylist() { return playlist; }
+    /** Getter */
+    public Playlist getPlaylist() {
+        return playlist;
+    }
 
     /**
      *    Aceasta metoda implementeaza comanda "select"
      *    Aceasta returneaza o clasa pe tiparul output-ului comenzii.
      * */
-    public ResultOut select_func(CommandIn command, LibraryInput library, UserInfo user) {
+    public ResultOut selectFunc(final CommandIn command, final LibraryInput library,
+                                                final ArrayList<UserInfo> users) {
         /* Declarare + initializare valoare de retur a metodei */
         ResultOut result = new ResultOut(command);
+        final int songId = 1;
+        final int podcastId = 2;
 
-        if (command.getItemNumber() > getSearch_result().size()) {
+        if (command.getItemNumber() > getSearchResult().size()) {
             result.setMessage("The selected ID is too high.");
-        } else if (!getSearch_done() || getSearch_result().size() < 1) {
-            result.setMessage("Please conduct a search before making a selection.");
         } else {
-            setSelected(true);    // In acest moment, melodia / podcast este selectata si gata pentru "load", "like" ..
-            if (result_type == 1) {
-                for (SongInput iter: library.getSongs()) {
-                                                        /* vvvv SUBJECT TO CHANGE vvvv */
-                    /*   v--- melodia din librarie             v----- rezultatele lui "search"*/
-                    if (iter.getName().contains(getSearch_result().get(command.getItemNumber()-1))) {
-                                                                                            /*   ^----- elementul din rezultatele lui "search" de pe pozitia scrisa in comanda */
-                        setSong(iter);      // <--- salvam referinta catre melodia selectata
-                        result.setMessage("Successfully selected " + iter.getName() + ".");
+            /* In acest moment, melodia / podcast este selectata si gata pentru "load", "like" */
+            setSelected(true);
+            if (resultType == songId) {
+                        /*  v--- Melodia ce se vrea selectata */
+                String selectedSong = getSearchResult().get(command.getItemNumber() - 1);
+                for (SongInput song: library.getSongs()) {
+                    String libSongName = song.getName();
+                    if (libSongName.equals(selectedSong)) {
+                        setSong(song);      // <--- salvam referinta catre melodia selectata
+                        result.setMessage("Successfully selected " + libSongName + ".");
                         break;
                     }
                 }
-            } else if (result_type == 2) {
+            } else if (resultType == podcastId) {
                 /* Similar cu cazul "result_type == 1" */
-                for (PodcastInput iter: library.getPodcasts()) {
-                    if (iter.getName().contains(getSearch_result().get(command.getItemNumber()-1))) {
-                        setPodcast(iter);
-                        result.setMessage("Successfully selected " + iter.getName() + ".");
+                String selectedPodcast = getSearchResult().get(command.getItemNumber() - 1);
+                for (PodcastInput podcast: library.getPodcasts()) {
+                    String libPodcastName = podcast.getName();
+                    if (libPodcastName.equals(selectedPodcast)) {
+                        setPodcast(podcast);
+                        result.setMessage("Successfully selected " + libPodcastName + ".");
                         break;
                     }
                 }
             } else {
                 /*
-                *   Se foloseste itemNumber din command
-                *   Iteram prin lista de playlisturi si cautam pe cel desemnat de itemNumber
+                *      Se foloseste itemNumber din command
+                *   Iteram prin lista de playlisturi a fiecarui user si
+                *   cautam pe cel desemnat de itemNumber
                 */
-                for (Playlist playlist: user.getPlaylists()) {
-                    String namePlaylist = playlist.getDetails().getName();
-                    String potentialPlaylistName = getSearch_result().get(command.getItemNumber()-1);
-                    if (namePlaylist.equals(potentialPlaylistName)) {
-                        setPlaylist(playlist);
-                        result.setMessage("Successfully selected " + playlist.getDetails().getName() + ".");
-                        break;
+                int id = command.getItemNumber();
+                for (UserInfo user: users) {
+                    for (Playlist playlist : user.getPlaylists()) {
+                        String namePlaylist = playlist.getDetails().getName();
+                        String potentialPlaylistName = getSearchResult().get(id - 1);
+                        if (namePlaylist.equals(potentialPlaylistName)) {
+                            setPlaylist(playlist);
+                            String succes = "Successfully selected ";
+                            result.setMessage(succes + playlist.getDetails().getName() + ".");
+                            break;
+                        }
                     }
                 }
             }

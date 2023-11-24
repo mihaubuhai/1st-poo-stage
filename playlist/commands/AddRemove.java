@@ -1,26 +1,32 @@
 package playlist.commands;
 
-import fileio.input.LibraryInput;
 import fileio.input.SongInput;
 import input.commands.CommandIn;
 import main.UserInfo;
 import output.result.ResultOut;
-import player.commands.Load;
-import player.commands.Player;
-
 import java.util.ArrayList;
 
-public class AddRemove {
-    public static ResultOut addRemoveInPlaylist(UserInfo user, CommandIn command, ArrayList<SongInput> librarySongs) {
+/** Aceasta clasa are singurul ideal de a executa comanda "addRemove" pentru playlist */
+public final class AddRemove {
+    /* Constructor nefolosit, il privatizam */
+    private AddRemove() {
+
+    }
+
+    /** Aceasta metoda implementeaza comanda "addRemove" */
+    public static ResultOut addRemoveInPlaylist(final UserInfo user, final CommandIn command,
+                                                final ArrayList<SongInput> librarySongs) {
         ResultOut result = new ResultOut(command);
 
         /* Verificam daca player-ul ruleaza */
         if (user.getPlayer() == null) {
-            result.setMessage("Please load a source before adding to or removing from the playlist.");
+            String out = "Please load a source before adding to or removing from the playlist.";
+            result.setMessage(out);
             return result;
         }
-        /* Verificam daca player-ul ruleaza o melodie (prin resultType al selectInfo ne dam seama) */
-        if (user.getPlayer().getLoadInfo().getSelectInfo().getResult_type() != 1) {
+        final int songId = 1;
+        /*Verificam daca player-ul ruleaza o melodie (prin resultType al selectInfo ne dam seama)*/
+        if (user.getPlayer().getLoadInfo().getSelectInfo().getResultType() != songId) {
             result.setMessage("The loaded source is not a song.");
             return result;
         }
@@ -32,7 +38,10 @@ public class AddRemove {
 
         Playlist playlist = user.getPlaylists().get(command.getPlaylistId() - 1);
         String currentSong = user.getPlayer().getLoadInfo().getSelectInfo().getSong().getName();
-        /* Iteram prin lista de melodii ale playlist-ului si cautam melodia care este incarcata in player */
+        /*
+            Iteram prin lista de melodii ale playlist-ului si
+            cautam melodia care este incarcata in player
+        */
         for (SongInput song: playlist.getDetails().getSongs()) {
             if (song.getName().contains(currentSong)) {
                 playlist.getDetails().getSongs().remove(song);
