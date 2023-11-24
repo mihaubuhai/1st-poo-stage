@@ -1,0 +1,121 @@
+[ {
+  "command" : "search",
+  "timestamp" : 5,
+  "user" : "emily30",
+  "message" : "Search returned 5 results",
+  "results" : [ "Money Trees", "Big Pimpin'", "Whatever You Need", "Sicko Mode", "Empire State of Mind" ]
+}, {
+  "command" : "select",
+  "timestamp" : 10,
+  "user" : "emily30",
+  "message" : "Successfully selected Big Pimpin'."
+}, {
+  "command" : "load",
+  "timestamp" : 15,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 20,
+  "user" : "emily30",
+  "message" : "The specified playlist does not exist."
+}, {
+  "command" : "search",
+  "timestamp" : 25,
+  "user" : "emily30",
+  "message" : "Search returned 1 results",
+  "results" : [ "The Joe Rogan Experience" ]
+}, {
+  "command" : "select",
+  "timestamp" : 30,
+  "user" : "emily30",
+  "message" : "Successfully selected The Joe Rogan Experience."
+}, {
+  "command" : "load",
+  "timestamp" : 31,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "createPlaylist",
+  "timestamp" : 35,
+  "user" : "emily30",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 40,
+  "user" : "emily30",
+  "message" : "The loaded source is not a song."
+}, {
+  "command" : "search",
+  "timestamp" : 45,
+  "user" : "emily30",
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 50,
+  "user" : "emily30",
+  "message" : "Please load a source before adding to or removing from the playlist."
+}, {
+  "command" : "createPlaylist",
+  "timestamp" : 55,
+  "user" : "emily30",
+  "message" : "A playlist with the same name already exists."
+}, {
+  "command" : "search",
+  "timestamp" : 60,
+  "user" : "emily30",
+  "message" : "Search returned 4 results",
+  "results" : [ "The Man", "Freedom", "Castle on the Hill", "Get Lucky" ]
+}, {
+  "command" : "select",
+  "timestamp" : 70,
+  "user" : "emily30",
+  "message" : "Successfully selected Get Lucky."
+}, {
+  "command" : "load",
+  "timestamp" : 71,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 72,
+  "user" : "emily30",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 75,
+  "user" : "emily30",
+  "message" : "Search returned 1 results",
+  "results" : [ "Playlist alb pentru zile negre" ]
+}, {
+  "command" : "like",
+  "timestamp" : 80,
+  "user" : "emily30",
+  "message" : "Please load a source before liking or unliking."
+}, {
+  "command" : "select",
+  "timestamp" : 85,
+  "user" : "emily30",
+  "message" : "Successfully selected Playlist alb pentru zile negre."
+}, {
+  "command" : "load",
+  "timestamp" : 86,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "like",
+  "timestamp" : 90,
+  "user" : "emily30",
+  "message" : "Like registered successfully."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 95,
+  "user" : "emily30",
+  "result" : [ {
+    "name" : "Playlist alb pentru zile negre",
+    "songs" : [ "Get Lucky" ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
+} ]

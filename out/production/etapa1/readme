@@ -1,0 +1,54 @@
+    Functionalitatea programului incepe, cu adevarat, in cadrul clasei "AnalyzeCommands", intrucat rolul acesteia este de a interpreta
+fiecare comanda primita la input si executarea acesteia, prin apel de metode corespunzator. Intrucat acesta clasa serveste doar pentru
+un apel de metoda, aceasta este definita ca un Singletton. Se gasesc clase Singletton in acest proiect deoarece ele servesc doar un
+scop, anume executarea comenzii pentru care au fost si definite.
+    Pentru rulare in paralel a mai multor "playere", se recurge la stocarea informatiilor despre fiecare user intr-o lista,
+in program numita: "users". Clasa "UserInfo", folosita pentru a descrie un user, contine mai multe informatii, cea mai importanta fiind
+ce anume ruleaza player-ul, intr-o clasa instantiata la comanda "Load", denumita "Player". Natural, un user nu poate rula o melodie fara
+un player, iar un player nu poate exista daca nu este invocat de un user, deci relatia dintre aceste 2 clase s-a ales sa fie compunerea.
+Clasa "Player", care contine si clasa "Load", acestea fiind instantiate la invocarea comenzii "load", se afla in relatie de compunere cu
+"Stats"; aceasta din urma clasa este folosita, pe langa afisarea rezultatului comenzii "status", si pe parcursul programului, intrucat
+contine starile "shuffle" si "repeat"; de fapt, la executarea comenzilor "shuffle" si "repeat", se acceseaza campul aferent clasei "Stats"
+din "Player" pentru a face modificarile aferente.
+    Poate printre cele mai dificile probleme impuse de aceasta tema este actualizarea timpului fiecarui player, in parte. Deoarece exista
+comenzi care au directa influenta asupra player-ului, precum "next", "prev", "shuffle", este necesara actualizarea timpului fiecarui player
+intr-o maniera dinamica; adica, la fiecare final de comanda, se apeleaza, pentru fiecare user in parte, metoda "updateRemainedTime", care
+rezolva acest aspect. Aceasta metoda intai modifica timpul ramas al ceea ce se ruleaza, scazand din acesta diferenta dintre "timestamp" al
+comenzii curente si "timestamp" al comenzii antecedente, apoi verifica daca acesta este in continuare pozitiv; teoretic, aceasta abordare
+trimite cu gandul la comanda "status" si de acolo i se trag originile (nu se foloseste comanda "status" in aceasta metoda). Odata asigurat
+faptul ca timpul ramas este negativ, in functie de ceea ce se ruleaza (aspect acoperit in aceasta metoda), se fac verificari ale starilor
+"repeat" si "shuffle", lucru implementat in metodele "repeatSongEpisode" si "repeatPlaylist"; verificarile ulterior amintite se refera la
+gasirea, in cazul playlist-urilor si podcast-urilor, indicilor urmatori corespunzatori, pentru ca timpul ramas din player trebuie "stabilizat"
+la o valoare pozitiva, iar asta se face prin adunarea cu timpul initial pentru melodia / episodul urmator, observabil in cadrul metodelor
+"findFittingSong" si "findFittingEpisode". Prima metoda scrisa anterior intampina probleme diverse, iar ele sunt rezolvate folosind doua valori
+boolean "fstIter" si "forceExit", acestea acoperand cazuri extreme precum final de vector de indici amestecati, dar timpul din player este
+stabil sau final de playlist fara stare de repeat dar nu final de vector de indici amestecati si timp ramas negativ. Intrucat starea player-ului
+la un moment dat tine de utilizator (mai asculta sau nu, sau a rulat ceva la un moment dat), metodele care abordeaza problema timpului se
+gasesc in clasa "UserInfo".
+    Intrucat majoritatea comenzilor au output similar, se porneste de la o clasa numita "Output", care contine campurile comune pentru
+toate comenzile, iar pentru cazuri aparte, se extinde aceasta clasa; deci se foloseste mostenirea clasei "Output" pentru afisarea rezultatelor
+tuturor comenzilor, lucru observabil in pachetul: "output.result", fiecare mostenitor aducand cate un camp nou.
+    In pachetul "search.bar" se afla clasele "Search" si "Select" care, evident, au rolul de a executa comenzile cu acelasi nume. Din cauza ca
+"Search" nu se evidentiaza in program prin nimic altceva decat prin metoda "searchFunc", aceasta a fost definita ca un Singletton. In metoda ce
+implementeaza "search", intai se verifica tipul obiectului cautat, apoi prin apel la metodele "checkFiltersSong/Podcast/Playlist", se analizeaza
+posibile rezultate. Principiul dupa care aceste 3 metode functioneaza este acelasi, anume: se declara o variabila "validFilters" care tine cont
+de cate conditii impuse de comanda data sunt satisfacute; la finalul verificarilor, aceasta variabila se compara cu numarul de campuri nenule
+ale clasei "Filters", gasita in clasa "Command", iar in caz de egalitate, se face ca obiectul asupra caruia s-au facut verificari reprezinta un
+rezultat valid. Clasa "Select" este fundamentala existentei unui player, intrucat ea contine orice informatie legata de ce se ruleaza, mai exact
+tipul (melodie / podcast / playlist) si referinta catre obiectul aferent din biblioteca. Totodata, in aceasta clasa se gaseste metoda "selectFunc",
+care implementeaza comanda "select".
+    In pachetul "playlist.commands" se gasesc toate clasele care refera la conceputul de playlist al acestui proiect. Clasa "Playlist" este
+obiectul care reprezinta efectiv un playlist; in aceasta clasa se gaseste metoda statica "switchVisibility". In cadrul actualizarii timpului pentru
+playlist-uri, este nevoie, la inceput, de cautarea melodiei imediat urmatoare din playlist a melodiei care ruleaza, iar campul "idxSong" a fost
+desemnat cu acest rol; metoda "findIdxSong" implementeaza aceasta necesitate. Clasa "PlaylistDetails" este fundamentala obiectului "playlist",
+intrucat el detine melodiile stocate in acesta, numele lui si numar de urmaritori. O clasa foarte importanta din acest pachet este clasa "FollowStats".
+Aceasta a fost creata cu obiectivul de a implementa comanda "followPlaylist", dar ea se gaseste si in constructia comenzii "getTop5Playlists";
+Astfel, in clasa "AnalyzeCommands" se retine o lista de clase de acest gen, care la invocarea comenzii amintite, va fi sortata dupa campul "followers"
+si dupa campul "timeCreation" din 'Playlist'.
+    Pachetul "player.commands" contine toate clasele si metodele care au de a face cu un "Player". Pentru comenzile "forward", "backward", "next" si
+"prev" s-a pornit de la clasa abstracta "FBNP", deoarece aceste trei comenzi prezinta necesitati comune, anume o referinta catre un "Player",
+o referinta catre o clasa de output asemanatoare "ResultOut" (acestea avand aceeasi structura de output) si de o metoda care verifica posibilitatea
+executarii comenzii, fapt modelat de metoda abstracta "checkValidity"; intrucat cele patru comenzi sunt in legatura doua cate doua, clasa "FBNP" a
+fost mostenita de alte doua clase, anume "NP" si "FB", care implementeaza comanda "checkValidity" si aduc noi campuri comune necesare comenzilor.
+Clasele "Shuffle", "Repeat" si "PlayPause" au ca principala insemnatate apelarea metodelor care executa comenzile primite, deci sunt definite ca niste
+clase Singletton. 

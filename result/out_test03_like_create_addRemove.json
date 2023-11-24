@@ -1,0 +1,114 @@
+[ {
+  "command" : "createPlaylist",
+  "timestamp" : 5,
+  "user" : "alice22",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 10,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Stairway to Heaven" ]
+}, {
+  "command" : "select",
+  "timestamp" : 15,
+  "user" : "alice22",
+  "message" : "Successfully selected Stairway to Heaven."
+}, {
+  "command" : "load",
+  "timestamp" : 20,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 24,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "like",
+  "timestamp" : 25,
+  "user" : "alice22",
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 26,
+  "user" : "alice22",
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 30,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "The Unforgiven" ]
+}, {
+  "command" : "select",
+  "timestamp" : 35,
+  "user" : "alice22",
+  "message" : "Successfully selected The Unforgiven."
+}, {
+  "command" : "load",
+  "timestamp" : 40,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "like",
+  "timestamp" : 45,
+  "user" : "alice22",
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 46,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "like",
+  "timestamp" : 50,
+  "user" : "alice22",
+  "message" : "Unlike registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 51,
+  "user" : "alice22",
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 52,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "like",
+  "timestamp" : 55,
+  "user" : "alice22",
+  "message" : "Like registered successfully."
+}, {
+  "command" : "like",
+  "timestamp" : 60,
+  "user" : "alice22",
+  "message" : "Unlike registered successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 63,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Playlist bengos" ]
+}, {
+  "command" : "select",
+  "timestamp" : 64,
+  "user" : "alice22",
+  "message" : "Successfully selected Playlist bengos."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 65,
+  "user" : "alice22",
+  "result" : [ {
+    "name" : "Playlist bengos",
+    "songs" : [ "The Unforgiven" ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
+}, {
+  "command" : "showPreferredSongs",
+  "timestamp" : 70,
+  "user" : "alice22",
+  "result" : [ "Stairway to Heaven" ]
+} ]

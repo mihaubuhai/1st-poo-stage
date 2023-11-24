@@ -1,0 +1,269 @@
+[ {
+  "command" : "createPlaylist",
+  "timestamp" : 150,
+  "user" : "bob35",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 170,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 190,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "timestamp" : 200,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 240,
+  "user" : "bob35",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "select",
+  "timestamp" : 290,
+  "user" : "bob35",
+  "message" : "Please conduct a search before making a selection."
+}, {
+  "command" : "load",
+  "timestamp" : 300,
+  "user" : "bob35",
+  "message" : "Please select a source before attempting to load."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 340,
+  "user" : "bob35",
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 370,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 390,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "timestamp" : 400,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 440,
+  "user" : "bob35",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "createPlaylist",
+  "timestamp" : 450,
+  "user" : "bob35",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 470,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 490,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "timestamp" : 500,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 540,
+  "user" : "bob35",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 570,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 590,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "timestamp" : 600,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 640,
+  "user" : "bob35",
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "createPlaylist",
+  "timestamp" : 750,
+  "user" : "carol19",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 870,
+  "user" : "carol19",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 890,
+  "user" : "carol19",
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "timestamp" : 900,
+  "user" : "carol19",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 940,
+  "user" : "carol19",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1000,
+  "user" : "carol19",
+  "message" : "Search returned 1 results",
+  "results" : [ "My first playlist" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1010,
+  "user" : "carol19",
+  "message" : "Successfully selected My first playlist."
+}, {
+  "command" : "follow",
+  "timestamp" : 1050,
+  "user" : "carol19",
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1060,
+  "user" : "bob35",
+  "result" : [ {
+    "name" : "My first playlist",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "public",
+    "followers" : 1
+  }, {
+    "name" : "My second playlist",
+    "songs" : [ ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1100,
+  "user" : "carol19",
+  "result" : [ {
+    "name" : "The best",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
+}, {
+  "command" : "switchVisibility",
+  "timestamp" : 1130,
+  "user" : "bob35",
+  "message" : "Visibility status updated successfully to private."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1160,
+  "user" : "bob35",
+  "result" : [ {
+    "name" : "My first playlist",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "private",
+    "followers" : 1
+  }, {
+    "name" : "My second playlist",
+    "songs" : [ ],
+    "visibility" : "public",
+    "followers" : 0
+  } ]
+}, {
+  "command" : "search",
+  "timestamp" : 1200,
+  "user" : "david27",
+  "message" : "Search returned 1 results",
+  "results" : [ "The best" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1210,
+  "user" : "david27",
+  "message" : "Successfully selected The best."
+}, {
+  "command" : "follow",
+  "timestamp" : 1250,
+  "user" : "david27",
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 1300,
+  "user" : "emily30",
+  "message" : "Search returned 1 results",
+  "results" : [ "The best" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1310,
+  "user" : "emily30",
+  "message" : "Successfully selected The best."
+}, {
+  "command" : "follow",
+  "timestamp" : 1350,
+  "user" : "emily30",
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1370,
+  "user" : "carol19",
+  "result" : [ {
+    "name" : "The best",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "public",
+    "followers" : 2
+  } ]
+}, {
+  "command" : "switchVisibility",
+  "timestamp" : 1400,
+  "user" : "carol19",
+  "message" : "Visibility status updated successfully to private."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1500,
+  "user" : "carol19",
+  "result" : [ {
+    "name" : "The best",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "private",
+    "followers" : 2
+  } ]
+}, {
+  "command" : "switchVisibility",
+  "timestamp" : 1560,
+  "user" : "carol19",
+  "message" : "Visibility status updated successfully to public."
+}, {
+  "command" : "showPlaylists",
+  "timestamp" : 1600,
+  "user" : "carol19",
+  "result" : [ {
+    "name" : "The best",
+    "songs" : [ "Start Me Up" ],
+    "visibility" : "public",
+    "followers" : 2
+  } ]
+} ]

@@ -1,0 +1,294 @@
+[ {
+  "command" : "search",
+  "timestamp" : 10,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Dream Chaser" ]
+}, {
+  "command" : "select",
+  "timestamp" : 15,
+  "user" : "alice22",
+  "message" : "Successfully selected Dream Chaser."
+}, {
+  "command" : "load",
+  "timestamp" : 20,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "status",
+  "timestamp" : 30,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "Dream Chaser",
+    "remainedTime" : 195,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "repeat",
+  "timestamp" : 31,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to repeat once."
+}, {
+  "command" : "status",
+  "timestamp" : 32,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "Dream Chaser",
+    "remainedTime" : 193,
+    "repeat" : "Repeat Once",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "timestamp" : 257,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "Dream Chaser",
+    "remainedTime" : 173,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "repeat",
+  "timestamp" : 258,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to repeat once."
+}, {
+  "command" : "repeat",
+  "timestamp" : 258,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to repeat infinite."
+}, {
+  "command" : "status",
+  "timestamp" : 1000,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "Dream Chaser",
+    "remainedTime" : 45,
+    "repeat" : "Repeat Infinite",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "createPlaylist",
+  "timestamp" : 1005,
+  "user" : "alice22",
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "timestamp" : 1006,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "99 Problems" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1007,
+  "user" : "alice22",
+  "message" : "Successfully selected 99 Problems."
+}, {
+  "command" : "load",
+  "timestamp" : 1008,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 1009,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1010,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Hustle Hard" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1011,
+  "user" : "alice22",
+  "message" : "Successfully selected Hustle Hard."
+}, {
+  "command" : "load",
+  "timestamp" : 1012,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 1013,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1014,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Butterfly Effect" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1015,
+  "user" : "alice22",
+  "message" : "Successfully selected Butterfly Effect."
+}, {
+  "command" : "load",
+  "timestamp" : 1016,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 1017,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1018,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Moves Like Jagger" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1019,
+  "user" : "alice22",
+  "message" : "Successfully selected Moves Like Jagger."
+}, {
+  "command" : "load",
+  "timestamp" : 1020,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 1021,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1022,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Dream Chaser" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1023,
+  "user" : "alice22",
+  "message" : "Successfully selected Dream Chaser."
+}, {
+  "command" : "load",
+  "timestamp" : 1024,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "timestamp" : 1025,
+  "user" : "alice22",
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "timestamp" : 1026,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "My favourite songs" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1027,
+  "user" : "alice22",
+  "message" : "Successfully selected My favourite songs."
+}, {
+  "command" : "load",
+  "timestamp" : 1028,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "status",
+  "timestamp" : 1035,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 227,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "repeat",
+  "timestamp" : 1036,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to repeat all."
+}, {
+  "command" : "status",
+  "timestamp" : 1037,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 225,
+    "repeat" : "Repeat All",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "timestamp" : 2099,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 225,
+    "repeat" : "Repeat All",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "repeat",
+  "timestamp" : 2100,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to repeat current song."
+}, {
+  "command" : "status",
+  "timestamp" : 2101,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 223,
+    "repeat" : "Repeat Current Song",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "timestamp" : 2334,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 224,
+    "repeat" : "Repeat Current Song",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "repeat",
+  "timestamp" : 2335,
+  "user" : "alice22",
+  "message" : "Repeat mode changed to no repeat."
+}, {
+  "command" : "status",
+  "timestamp" : 2336,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "99 Problems",
+    "remainedTime" : 222,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "timestamp" : 3600,
+  "user" : "alice22",
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+} ]
